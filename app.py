@@ -12,7 +12,7 @@ from tensorflow import keras
 
 @st.cache_resource
 def load_model():
-    model = keras.models.load_model("phishing_model.h5")
+    model = keras.models.load_model("phishing_model.h5",compile=False)
     scaler = joblib.load("scaler.pkl")
     with open("feature_names.pkl", "rb") as f:
         feature_names = pickle.load(f)
@@ -143,3 +143,4 @@ if st.button("Check URL"):
         else:
             st.success(f"✅ LEGITIMATE — Confidence: {(1-prob)*100:.2f}%")
             st.write("👍 Safe to proceed.")
+
