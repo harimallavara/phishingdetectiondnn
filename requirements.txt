@@ -1,9 +1,9 @@
-numpy
-pandas
-tensorflow==2.15.0
-scikit-learn
-matplotlib
-pickle-mixin
-streamlit
-joblib
+numpy==1.26.4
+pandas==2.2.2
+tensorflow-cpu==2.15.0
+scikit-learn==1.4.2
+matplotlib==3.8.4
+streamlit==1.32.0
+joblib==1.3.2
+
 
