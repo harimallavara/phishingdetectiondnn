@@ -1,8 +1,9 @@
 numpy
 pandas
-tensorflow
+tensorflow==2.15.0
 scikit-learn
 matplotlib
 pickle-mixin
 streamlit
 joblib
+
