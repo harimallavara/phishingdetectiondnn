@@ -9,12 +9,13 @@ import pickle
 from tensorflow import keras
 
 # ================= LOAD MODEL & OBJECTS =================
-
+import os
 @st.cache_resource
 def load_model():
-    model = keras.models.load_model("phishing_model.h5",compile=False)
-    scaler = joblib.load("scaler.pkl")
-    with open("feature_names.pkl", "rb") as f:
+    HERE = os.path.dirname(__file__)
+    model = keras.models.load_model(os.path.join(HERE,"phishing_model.h5"))
+    scaler = joblib.load(os.path.join(HERE,"scaler.pkl"))
+    with open(os.path.join(HERE, "feature_names.pkl"), "rb") as f:
         feature_names = pickle.load(f)
     return model, scaler, feature_names
 
@@ -143,4 +144,5 @@ if st.button("Check URL"):
         else:
             st.success(f"✅ LEGITIMATE — Confidence: {(1-prob)*100:.2f}%")
             st.write("👍 Safe to proceed.")
+
 
